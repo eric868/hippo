@@ -32,7 +32,7 @@ enum THREAD_PRIORITY
 #else
 #define thread_proc 
 #endif
-class COMMON_API thread
+class thread
 {
 public:
 	typedef void (thread_proc *thread_proc_t)(void*);
@@ -60,7 +60,7 @@ private:
 #endif
 };
 
-class COMMON_API process_thread
+class process_thread
 {
 public:
 	process_thread();

@@ -29,7 +29,7 @@ enum TRACE_LEVEL
 	TRACE_LEVEL_OFF = 0x7FFF,
 };
 
-COMMON_API const char* parseFileName(const char* filename);
+const char* parseFileName(const char* filename);
 
 #if defined(DEBUG) || defined(_DEBUG)
 #	define TRACE_DEBUG(module, message, ...) \
@@ -54,7 +54,7 @@ COMMON_API const char* parseFileName(const char* filename);
 typedef void (*trace_callback)(base::TRACE_LEVEL level, const char* module, int code, const char* message);
 typedef std::string (*error_string_translator)(int);
 
-class COMMON_API trace
+class trace
 {
 public:
 	static void add(const TRACE_LEVEL level,

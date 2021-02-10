@@ -47,7 +47,7 @@ union dvalue
 
 /*********************************************************************/
 
-class COMMON_API dobject
+class dobject
 	: public reference_base
 {
 	friend class dobject_ref;
@@ -189,7 +189,7 @@ typedef std::vector<dobject_ref> dvector;
 typedef VBASE_HASH_MAP<std::string, dobject_ref> dmap;
 static const dobject dobject_null;
 
-class COMMON_API darray
+class darray
 {
 public:
 	darray();
@@ -231,7 +231,7 @@ private:
 
 /*********************************************************************/
 
-class COMMON_API dictionary
+class dictionary
 {
 public:
 	dictionary();

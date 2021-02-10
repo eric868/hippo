@@ -32,7 +32,7 @@ struct alarm_info
 	{}
 };
 
-class COMMON_API alarm
+class alarm
 {
 public:
 	alarm(int hour = 0, int minute = 0, int second = 0);

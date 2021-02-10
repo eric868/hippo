@@ -19,7 +19,7 @@ base     2016.1.13   1.0     Create
 namespace base
 {
 
-class COMMON_API aes
+class aes
 {
 public:
 	aes();

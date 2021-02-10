@@ -18,7 +18,7 @@ namespace base
 {
 
 const int rsa_exponent = 17;
-class COMMON_API rsa
+class rsa
 {
 public:
 	rsa();

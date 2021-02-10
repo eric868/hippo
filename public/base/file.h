@@ -37,7 +37,7 @@ enum FILE_SEEK_TYPE
 typedef unsigned char byte;
 #endif
 
-class COMMON_API file
+class file
 {
 public:
 	file();

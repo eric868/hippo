@@ -1,17 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: base64.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __VBASE_BASE64_H__
-#define __VBASE_BASE64_H__
-
+#pragma once
 #include <string>
 
 namespace base
@@ -73,4 +60,3 @@ int base64_dec_len(const char* input, int input_length);
 
 }
 
-#endif // __VBASE_BASE64_H__

@@ -18,7 +18,7 @@ base     2016.1.13   1.0     Create
 namespace base
 {
 
-class COMMON_API djson
+class djson
 {
 public:
 	static std::string dict2str(const base::dictionary* dict);
@@ -29,7 +29,7 @@ public:
 
 /*********************************************************************/
 
-class COMMON_API dxml
+class dxml
 {
 public:
 	static std::string dict2str(const base::dictionary* dict);

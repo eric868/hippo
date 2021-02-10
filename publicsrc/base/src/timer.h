@@ -21,7 +21,7 @@ namespace base
 {
 
 typedef void(*timer_callback)(void* obj, void* param);
-class COMMON_API timer
+class timer
 {
 	friend class dispatch_scheduler;
 

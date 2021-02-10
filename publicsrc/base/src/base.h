@@ -1,35 +1,7 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: base.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __VBASE_BASE_H__
-#define __VBASE_BASE_H__
-
+#pragma once
 #include <string.h>
 #include <assert.h>
 #include <string>
-#include <atomic>
-#ifdef WIN32
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#ifdef COMMON_EXPORT
-#define COMMON_API  __declspec(dllexport)
-#define TEMPLATE_API  __declspec(dllexport)
-#else 
-#define COMMON_API  __declspec(dllimport)
-#define TEMPLATE_API 
-#endif
-#else	//WIN32 END
-#define COMMON_API
-#endif
 
 #if !defined __GNUC_MINOR__ || defined __INTEL_COMPILER || defined __SUNPRO_C || defined __SUNPRO_CC || defined __llvm__ || defined __clang__ || defined _MSC_VER
   #define base_gcc_version(major,minor) 0
@@ -41,6 +13,7 @@ base     2016.1.13   1.0     Create
 #ifdef _MSC_VER
   #include <intrin.h>
   #if _MSC_VER >= 1800 /* VC++ 2013 */
+	#include <atomic>
 	#define base_memory_fence() std::atomic_thread_fence(std::memory_order_acq_rel)
   #elif _MSC_VER >= 1500 /* VC++ 2008 */
   	/* apparently, microsoft broke all the memory barrier stuff in Visual Studio 2008... */
@@ -151,7 +124,7 @@ base     2016.1.13   1.0     Create
 	#define VBASE_HASH_MAP std::unordered_map
 #endif
 
-class COMMON_API string_hash {
+class string_hash {
 public:
 	size_t operator()(const char* str) const {
 		size_t hash = 1315423911;
@@ -162,7 +135,7 @@ public:
 	}
 };
 
-class COMMON_API string_compare {
+class string_compare {
 public:
 	bool operator()(const char* a, const char* b) const {
 		return (strcmp(a, b) == 0);
@@ -328,30 +301,5 @@ static const int64 kMinInt64 = -9223372036854775807LL - 1;
 static const int64 kMaxInt64 = 9223372036854775807LL;	
 static const uint64 kMaxUInt64 = 18446744073709551615ULL;
 
-enum COMM_ERROR
-{
-    NAUT_S_OK = 0,
+} // end of namespace base
 
-    /* error codes of module 'comm' */
-    NAUT_COMM_E_INVALID_JSON_STRING = 1000,
-    NAUT_COMM_E_STORE_DATA_DB_ERROR = 1001,
-    NAUT_COMM_E_CREATE_TABLE_ERROR = 1002,
-    NAUT_COMM_E_INITIALIZED_INVALID = 1003,
-    NAUT_COMM_E_INIT_CONN_ERROR = 1004,
-    NAUT_COMM_E_DB_QUERY_FAILED = 1005,
-
-    NAUT_COMM_E_CONNECT_TO_MO_AGENT_FAILED = 1050,
-    NAUT_COMM_E_INIT_MODULE_SYSTEM_MONITOR_FAILED = 1051,
-    NAUT_COMM_E_MOA_CONFIG_FILE_INVALID = 1052,
-    NAUT_COMM_E_MOA_CONFIG_INVALID = 1053,
-    NAUT_COMM_E_MOA_DISABLED = 1054,
-    NAUT_COMM_E_HTTP_CLIENT_ERROR = 1055,
-
-    NAUT_COMM_E_PARSE_JSON_QUOTE_ERROR = 1056,
-};
-
-#define COMM_TRACE_TAG "comm"
-
-} // end of namespace
-
-#endif

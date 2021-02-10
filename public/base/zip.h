@@ -20,7 +20,7 @@ namespace base {
 
 #define CHUNK 262144 // 256k buff
 
-class COMMON_API zip
+class zip
 {
 public:
 	zip();

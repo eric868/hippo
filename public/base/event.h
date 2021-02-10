@@ -24,7 +24,7 @@ base     2016.1.13   1.0     Create
 
 namespace base {
 
-class COMMON_API event
+class event
 {
 public:
     event();

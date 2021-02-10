@@ -25,7 +25,7 @@ base     2016.1.13   1.0     Create
  */
 namespace base {
 
-class COMMON_API mutex
+class mutex
 {
 public:
 	mutex();
@@ -47,7 +47,7 @@ protected:
 	bool initialized_;
 };
 
-class COMMON_API mutex_scope
+class mutex_scope
 {
 public:
 	mutex_scope(mutex* m);
@@ -59,7 +59,7 @@ protected:
 
 /****************************************************************************/
 
-class COMMON_API rwlock
+class rwlock
 {
 public:
 	rwlock();
@@ -96,7 +96,7 @@ private:
 #endif
 };
 
-class COMMON_API read_lock_scope
+class read_lock_scope
 {
 public:
 	read_lock_scope(rwlock* lock)
@@ -112,7 +112,7 @@ private:
 	rwlock* rwlock_;
 };
 
-class COMMON_API write_lock_scope
+class write_lock_scope
 {
 public:
 	write_lock_scope(rwlock* lock)

@@ -16,7 +16,7 @@ base     2016.1.13   1.0     Create
 #include "base.h"
 namespace base {
 
-class TEMPLATE_API reference_base
+class reference_base
 {
 public:
 	reference_base();
@@ -36,7 +36,7 @@ private:
 };
 
 template<class T>
-class TEMPLATE_API ref_adapter
+class ref_adapter
 	: public reference_base
 {
 public:

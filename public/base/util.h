@@ -18,7 +18,7 @@ base     2016.1.13   1.0     Create
 
 namespace base {
 
-class COMMON_API util
+class util
 {
 public:
 	static bool is_equal_ignore_case(const char* s1, const char* s2);

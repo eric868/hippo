@@ -26,7 +26,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -89,7 +89,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>COMMON_EXPORT;WIN32;_DEBUG;_WINDOWS;_USRDLL;BASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>COMMON_EXPORT;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)3rd\libevent-2.1.11-stable\include;$(SolutionDir)3rd\openssl\include;$(SolutionDir)3rd</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -165,8 +165,6 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClCompile Include="src\dtrans.cpp" />
     <ClCompile Include="src\event.cpp" />
     <ClCompile Include="src\file.cpp" />
-    <ClCompile Include="src\http_server.cpp" />
-    <ClCompile Include="src\http_client.cpp" />
     <ClCompile Include="src\lock.cpp" />
     <ClCompile Include="src\md5.cpp" />
     <ClCompile Include="src\pugixml.cpp" />
@@ -188,8 +186,6 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClInclude Include="src\dtrans.h" />
     <ClInclude Include="src\event.h" />
     <ClInclude Include="src\file.h" />
-    <ClInclude Include="src\http_server.h" />
-    <ClInclude Include="src\http_client.h" />
     <ClInclude Include="src\lock.h" />
     <ClInclude Include="src\md5.h" />
     <ClInclude Include="src\mqueue.h" />
