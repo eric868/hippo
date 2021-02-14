@@ -66,10 +66,10 @@
     <ClCompile Include="src\util.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\zip.cpp">
+    <ClCompile Include="src\pugixml.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\pugixml.cpp">
+    <ClCompile Include="src\zip.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -134,13 +134,13 @@
     <ClInclude Include="src\util.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\zip.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\pugiconfig.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\pugixml.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\zip.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
