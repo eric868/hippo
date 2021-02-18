@@ -1,16 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: reference_base.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __VBASE_REFERENCE_BASE_H__
-#define __VBASE_REFERENCE_BASE_H__
+#pragma once
 
 #include <stdio.h>
 #include "base.h"
@@ -60,4 +48,3 @@ public:
 };
 
 } // end of namespace base
-#endif

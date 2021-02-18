@@ -1,14 +1,3 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: reference_base.cpp
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
 #include "reference_base.h"
 #if defined(_MSC_VER)
 #include <Windows.h>

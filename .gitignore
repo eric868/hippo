@@ -4,6 +4,7 @@ bin/*
 temp/*
 debug/*
 hippo/debug/*
+hippo/bin/*
 publicsrc/base/bin/*
 
  # Compiled source # 
