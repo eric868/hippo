@@ -1,17 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: dtrans.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __BASE_DTRANS_H__
-#define __BASE_DTRANS_H__
-
+#pragma once
 #include "base.h"
 #include "dictionary.h"
 
@@ -39,5 +26,3 @@ public:
 };
 
 }
-
-#endif

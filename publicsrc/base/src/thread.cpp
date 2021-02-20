@@ -1,16 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: thread.cpp
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
 #include "thread.h"
-#include "trace.h"
 #ifdef _MSC_VER
 #else
 #include <sys/sysctl.h>
@@ -133,17 +121,9 @@ void process_thread::start()
 {
 #ifdef _MSC_VER
 	thread_ = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)_thread_proc, this, 0, NULL);
-	if (thread_ == NULL) {
-		TRACE_ERROR("base", 0, "fail to create process_thread");
-	}
-	else {
-		set_priority(base::THREAD_PRI_NORMAL);
-	}
+	set_priority(base::THREAD_PRI_NORMAL);
 #else
-	int ret = pthread_create(&thread_, NULL, _thread_proc, this);
-	if (ret != 0) {
-		TRACE_ERROR("base", 0, "fail to create process_thread");
-	}
+	pthread_create(&thread_, NULL, _thread_proc, this);
 #endif
 }
 

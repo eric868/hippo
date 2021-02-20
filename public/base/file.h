@@ -1,17 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: file.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __BASE_FILE_H__
-#define __BASE_FILE_H__
-
+#pragma once
 #if defined(_MSC_VER)
 #include <Windows.h>
 #else
@@ -81,4 +68,3 @@ private:
 
 } // end of namespace base
 
-#endif

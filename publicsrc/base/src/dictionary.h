@@ -1,17 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: dictionary.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __VBASE_DICTIONARY_H__
-#define __VBASE_DICTIONARY_H__
-
+#pragma once
 #include <vector>
 #include <stdlib.h>
 #include "base.h"
@@ -291,4 +278,3 @@ private:
 typedef ref_adapter<base::dictionary> ref_dictionary;
 
 }
-#endif

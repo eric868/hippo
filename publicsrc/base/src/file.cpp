@@ -1,16 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: file.cpp
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
 #include "file.h"
-
 #if defined(_MSC_VER)
 #include <iostream>
 #include <imagehlp.h>

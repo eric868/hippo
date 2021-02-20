@@ -1,17 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: md5.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __VBASE_MD5_H__
-#define __VBASE_MD5_H__
-
+#pragma once
 #include <string>
 #include "base.h"
 namespace base
@@ -56,4 +43,3 @@ namespace base
     int calcul_path_md5(std::string& output, const char* file_path, const std::string stype = "$.exe$.so$.a$");
 }
 
-#endif // __VBASE_BASE64_H__

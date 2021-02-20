@@ -1,17 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: trace.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __BASE_TRACE_H__
-#define __BASE_TRACE_H__
-
+#pragma once
 #include <string>
 #include "base.h"
 namespace base {
@@ -80,4 +67,3 @@ public:
 
 } // end of namespace base
 
-#endif
