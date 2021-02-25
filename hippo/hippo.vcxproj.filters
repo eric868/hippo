@@ -22,4 +22,12 @@
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\test_dictionary.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test_struct_field.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

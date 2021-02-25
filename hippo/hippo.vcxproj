@@ -21,6 +21,10 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\test_dictionary.h" />
+    <ClInclude Include="src\test_struct_field.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1E537D27-2285-4A7C-92B5-3475871D159A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

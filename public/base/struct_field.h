@@ -6,6 +6,7 @@ class StructFieldBase
 public:
 	virtual ~StructFieldBase() {};
 	virtual void set_value(const std::string& source, T& inst) = 0;
+	virtual std::string get_value(const T& inst) = 0;
 };
 
 template <typename T, typename IT>
@@ -39,6 +40,25 @@ public:
 		set_field(source, inst.*fieldptr_);
 	}
 
+	inline std::string get_field(std::string value)
+	{
+		return value;
+	}
+
+	inline std::string get_field(int value)
+	{
+		return std::to_string(value);
+	}
+
+	inline std::string get_field(double value)
+	{
+		return std::to_string(value);
+	}
+
+	virtual std::string get_value(const T& inst)
+	{
+		return get_field(inst.*fieldptr_);;
+	}
 private:
 	IT T::* fieldptr_;
 };
