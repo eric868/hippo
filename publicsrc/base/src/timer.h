@@ -1,17 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: timer.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __BASE_TIMER_H__
-#define __BASE_TIMER_H__
-
+#pragma once
 #include "thread.h"
 #include "lock.h"
 #include "event.h"
@@ -54,4 +41,3 @@ protected:
 
 }
 
-#endif

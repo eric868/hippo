@@ -1,14 +1,3 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: timer.cpp
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
 #include "timer.h"
 #include "util.h"
 #include "dispatch.h"

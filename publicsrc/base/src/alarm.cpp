@@ -1,14 +1,3 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: alarm.cpp
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
 #include "alarm.h"
 #include "util.h"
 #include "dispatch.h"

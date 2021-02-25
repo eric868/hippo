@@ -1,17 +1,4 @@
-/******************************************************************************
-Copyright (c) 2016. All Rights Reserved.
-
-FileName: alarm.h
-Version: 1.0
-Date: 2016.1.13
-
-History:
-base     2016.1.13   1.0     Create
-******************************************************************************/
-
-#ifndef __BASE_ALARM_H__
-#define __BASE_ALARM_H__
-
+#pragma once
 #include <vector>
 #include "sigslot.h"
 #include "timer.h"
@@ -61,4 +48,3 @@ private:
 
 }
 
-#endif

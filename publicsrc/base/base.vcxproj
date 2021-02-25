@@ -194,6 +194,7 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClInclude Include="src\reference_base.h" />
     <ClInclude Include="src\rsa.h" />
     <ClInclude Include="src\sigslot.h" />
+    <ClInclude Include="src\struct_field.h" />
     <ClInclude Include="src\thread.h" />
     <ClInclude Include="src\timer.h" />
     <ClInclude Include="src\tqueue.h" />
