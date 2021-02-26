@@ -29,5 +29,11 @@
     <ClInclude Include="src\test_struct_field.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\test_sigslot.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test_alarm.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

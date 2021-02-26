@@ -22,7 +22,9 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\test_alarm.h" />
     <ClInclude Include="src\test_dictionary.h" />
+    <ClInclude Include="src\test_sigslot.h" />
     <ClInclude Include="src\test_struct_field.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

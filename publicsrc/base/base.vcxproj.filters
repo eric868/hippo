@@ -16,9 +16,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{ccf5945e-e1c4-469e-9e03-f0b6e8fad662}</UniqueIdentifier>
     </Filter>
-    <Filter Include="example">
-      <UniqueIdentifier>{ac5010da-548e-434e-a6d3-de675f930b8a}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\aes.cpp">
