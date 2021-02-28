@@ -1,0 +1,84 @@
+#######Makefile Begin#######################
+
+CC = g++
+
+CPPFLAGS := -fPIC -std=c++11 
+ifeq ($(VERSION), debug)
+CPPFLAGS += -DDEBUG -g
+else
+CPPFLAGS += -O2
+endif
+
+#add macro
+#CPPFLAGS += -D __linux__
+##
+
+
+SRCEXTS := .cpp
+SOURCES := $(foreach d,$(SRCDIR),$(wildcard $(addprefix $(d)/*,$(SRCEXTS))))
+OBJS := $(patsubst %.cpp,./obj/%.o,$(notdir $(SOURCES)))
+SRCEXTS := .cc
+SOURCES := $(foreach d,$(SRCDIR),$(wildcard $(addprefix $(d)/*,$(SRCEXTS))))
+OBJS_CC := $(patsubst %.cc,./obj/%.o,$(notdir $(SOURCES)))
+OBJS_ALL = $(OBJS) $(OBJS_CC)
+
+.PHONY : all install clean
+all : $(TARGET) 
+
+$(OBJS) :
+./obj/%.o : $(SRCDIR)/%.cpp
+	@mkdir -p $(dir $@)
+	@echo "==================================================================="
+	@echo "Compiling $<"
+	$(CC) -c $< -o $@ $(CPPFLAGS) $(INCLUDES)
+	
+$(OBJS_CC) :
+./obj/%.o : $(SRCDIR)/%.cc
+	@mkdir -p $(dir $@)
+	@echo "==================================================================="
+	@echo "Compiling $<"
+	$(CC) -c $< -o $@ $(CPPFLAGS) $(INCLUDES)
+
+
+$(TARGET) : $(OBJS_ALL)
+	mkdir -p ./bin/$(VERSION)
+
+ifeq ($(TARGET_TYPE), dynamic_lib)
+	$(CC) -shared -o ./bin/$(VERSION)/lib$(TARGET).so $(OBJS_ALL) $(LIBS)
+endif
+
+ifeq ($(TARGET_TYPE), static_lib)
+	ar rcs ./bin/$(VERSION)/lib$(TARGET).a $(OBJS_ALL)
+endif
+
+ifeq ($(TARGET_TYPE), executable)
+	$(CC) -o ./bin/$(VERSION)/$(TARGET) $(OBJS_ALL) $(LIBS)
+endif
+
+install : all
+	@mkdir -p $(SOLUTIONDIR)public/lib
+	@mkdir -p $(SOLUTIONDIR)public/$(TARGET)
+
+ifeq ($(TARGET_TYPE), dynamic_lib)
+	cp -f ./bin/$(VERSION)/lib$(TARGET).so $(SOLUTIONDIR)public/lib
+endif
+
+ifeq ($(TARGET_TYPE), static_lib)
+	cp -f ./bin/$(VERSION)/lib$(TARGET).a $(SOLUTIONDIR)public/lib
+endif
+
+ifneq ($(TARGET_TYPE), executable)
+	@echo $(SOLUTIONDIR)public/$(TARGET)/
+	-mkdir -p $(SOLUTIONDIR)public/$(TARGET)/
+ifneq ($(wildcard $(SRCDIR)/*.h*),)
+	-cp -p $(SRCDIR)/*.h* $(SOLUTIONDIR)public/$(TARGET)/
+endif
+endif 
+
+clean :
+	@echo "cleaning ..."
+	rm -f $(OBJS_ALL)
+	rm -f ./bin/$(VERSION)/*
+
+###############################################################################
+

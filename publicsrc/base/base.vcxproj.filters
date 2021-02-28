@@ -147,4 +147,7 @@
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

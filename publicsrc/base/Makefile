@@ -1,37 +1,32 @@
-##### @version $Id: Makefile 1108 2012-02-15 08:24:22Z liuzq $  #####
 #######Makefile Begin#######################
 
-TARGET_NAME := base
+TARGET := base
 
-#Debug or Release
-BUILD_TYPE := Debug
+#debug or release
+VERSION := debug
 
 #dynamic_lib/static_lib/executable
-MODULE_TYPE := dynamic_lib
-COMMON_PATH := ../..
+TARGET_TYPE := static_lib
 
-TARGET := $(TARGET_NAME)
+SRCDIR   := ./src
 
-SRCDIRS   := ./src
-SRCDIRS   += 
+#solution dir
+SOLUTIONDIR := ../../
 
-CPPFLAGS  := -fPIC -I./src -I$(COMMON_PATH)/include/dllcommon
-CPPFLAGS  +=
+#include dir
+INCLUDES := -I$(SOLUTIONDIR)3rd/openssl-1.0.1/include  
+#INCLUDES += -I$(SOLUTIONDIR)3rd/libevent-2.1.11-stable/include
+INCLUDES += -I$(SOLUTIONDIR)3rd
 
-LDFLAGS   := -L$(COMMON_PATH)/lib/$(BUILD_TYPE)/ -l_dllcommon -lrt 
-
-BUILD_PRE : 
-	rm -rf bin/$(BUILD_TYPE)/*
-	mkdir -p bin/$(BUILD_TYPE)
-
-BUILD_POST :
-	rm -rf $(COMMON_PATH)/include/base
-	@mkdir -p $(COMMON_PATH)/include/base
-	cp -p ./src/*.h $(COMMON_PATH)/include/base/
-	@mkdir -p $(COMMON_PATH)/lib/$(BUILD_TYPE)
-	cp -p ./bin/$(BUILD_TYPE)/*.* $(COMMON_PATH)/lib/$(BUILD_TYPE)/
-
-include ../../build/build_module.mk
+#depends lib
+LIBS := -L$(SOLUTIONDIR)3rd/openssl-1.0.1/linux
+#LIBS += -L$(SOLUTIONDIR)3rd/libevent-2.1.11-stable/linux
+LIBS += -L$(SOLUTIONDIR)3rd/jsoncpp-1.6.5/linux
+LIBS += -L$(SOLUTIONDIR)3rd/zlib-1.2.8/linux
+#LIBS += -levent -levent_core -levent_extra
+LIBS += -lssl -lcrypto -ljson_linux-gcc-4.8.5_libmt -lz
+	
+include $(SOLUTIONDIR)Makefile.share
 
 ### End of the Makefile 
 ###############################################################################

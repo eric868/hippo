@@ -8,7 +8,11 @@
 namespace base {
 
 thread::thread()
+#ifdef _MSC_VER
 	: thread_(NULL)
+#else
+	: thread_(0)
+#endif
 {
 }
 
@@ -38,7 +42,7 @@ void thread::join()
 	if (thread_) {
 		void* result;
 		pthread_join(thread_, &result);
-		thread_ = NULL;
+		thread_ = 0;
 	}
 #endif
 }
@@ -82,7 +86,12 @@ long thread::curr_thread_id()
 #ifdef _MSC_VER
 	return GetCurrentThreadId();
 #else
+	//进程内线程id，一个进程内唯一
 	return (long)pthread_self();
+	//系统唯一
+	//return syscall(SYS_gettid);
+	//Linux in kernel 2.4.11, before use of syscall
+	//return gettid();
 #endif
 }
 
@@ -101,7 +110,11 @@ int thread::number_of_processors()
 /****************************************************************************/
 
 process_thread::process_thread()
+#ifdef _MSC_VER
 	: thread_(NULL)
+#else
+	: thread_(0)
+#endif
 	, is_running_(false)
 {
 
@@ -139,10 +152,11 @@ void process_thread::stop()
 #ifdef _MSC_VER
 		WaitForSingleObject(thread_, INFINITE);
 		CloseHandle(thread_);
+		thread_ = NULL;
 #else
 		pthread_join(thread_, NULL);
+		thread_ = 0;
 #endif
-		thread_ = NULL;
 	}
 }
 

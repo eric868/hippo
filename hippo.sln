@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{D42AB508-D010-4A70-BB09-0CD0655F0B21}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Makefile.share = Makefile.share
 		README.md = README.md
 	EndProjectSection
 EndProject

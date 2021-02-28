@@ -5,8 +5,10 @@
 extern "C" {
 #endif
 /* OpenSSL was configured with the following options: */
+#ifdef __MSC_VER
 #ifndef OPENSSL_SYSNAME_WIN32
 # define OPENSSL_SYSNAME_WIN32
+#endif
 #endif
 #ifndef OPENSSL_DOING_MAKEDEPEND
 
