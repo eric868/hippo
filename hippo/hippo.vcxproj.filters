@@ -35,5 +35,11 @@
     <ClInclude Include="src\test_alarm.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\test_thread.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
 </Project>

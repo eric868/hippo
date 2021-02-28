@@ -6,10 +6,15 @@
 #include "test_struct_field.h"
 #include "test_sigslot.h"
 #include "test_alarm.h"
+#include "test_thread.h"
+
 using namespace std;
 
 int main()
 {
+	TestThread test_thread;
+	test_thread.test();
+
 	TestDictionary test_dictionary;
 	test_dictionary.test();
 

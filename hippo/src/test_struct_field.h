@@ -1,5 +1,6 @@
 #pragma once
 #include "struct_field.h"
+#include <memory>
 
 #define SET_STRUCT_FIELD(inst, field, data) inst.##field = data
 
@@ -39,10 +40,10 @@ private:
 std::map<std::string, std::unique_ptr<StructFieldBase<SettlementDetailInfo> > > SettlementDetailInfo::init_fieldptrs()
 {
 	std::map<std::string, std::unique_ptr<StructFieldBase<SettlementDetailInfo> > > tmp;
-	tmp["clientid"] = std::make_unique<StructField<SettlementDetailInfo, std::string SettlementDetailInfo::*> >(&SettlementDetailInfo::clientid);
-	tmp["price"] = std::make_unique<StructField<SettlementDetailInfo, double SettlementDetailInfo::*> >(&SettlementDetailInfo::price);
-	tmp["volume"] = std::make_unique<StructField<SettlementDetailInfo, int SettlementDetailInfo::*> >(&SettlementDetailInfo::volume);
-	tmp["amount"] = std::make_unique<StructField<SettlementDetailInfo, double SettlementDetailInfo::*> >(&SettlementDetailInfo::amount);
+	tmp["clientid"] = std::unique_ptr<StructFieldBase<SettlementDetailInfo> >(new StructField<SettlementDetailInfo, std::string SettlementDetailInfo::*>(&SettlementDetailInfo::clientid));
+	tmp["price"] = std::unique_ptr<StructFieldBase<SettlementDetailInfo> >(new StructField<SettlementDetailInfo, double SettlementDetailInfo::*>(&SettlementDetailInfo::price));
+	tmp["volume"] = std::unique_ptr<StructFieldBase<SettlementDetailInfo> >(new StructField<SettlementDetailInfo, int SettlementDetailInfo::*>(&SettlementDetailInfo::volume));
+	tmp["amount"] = std::unique_ptr<StructFieldBase<SettlementDetailInfo> >(new StructField<SettlementDetailInfo, double SettlementDetailInfo::*>(&SettlementDetailInfo::amount));
 	return tmp;
 }
 const std::map<std::string, std::unique_ptr<StructFieldBase<SettlementDetailInfo> > > SettlementDetailInfo::fieldptrs_ = SettlementDetailInfo::init_fieldptrs();

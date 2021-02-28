@@ -26,6 +26,10 @@
     <ClInclude Include="src\test_dictionary.h" />
     <ClInclude Include="src\test_sigslot.h" />
     <ClInclude Include="src\test_struct_field.h" />
+    <ClInclude Include="src\test_thread.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1E537D27-2285-4A7C-92B5-3475871D159A}</ProjectGuid>

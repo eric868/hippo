@@ -1,8 +1,8 @@
 #include "thread.h"
 #ifdef _MSC_VER
 #else
-#include <sys/sysctl.h>
 #include <unistd.h>
+#include <sys/syscall.h>
 #endif
 
 namespace base {
@@ -90,7 +90,7 @@ long thread::curr_thread_id()
 	return (long)pthread_self();
 	//系统唯一
 	//return syscall(SYS_gettid);
-	//Linux in kernel 2.4.11, before use of syscall
+	//如果考虑移植性，不应该使用此接口
 	//return gettid();
 #endif
 }

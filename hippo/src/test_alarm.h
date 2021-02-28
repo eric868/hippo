@@ -9,7 +9,9 @@ class TestAlarm : public sigslot::has_slots<>
 public:
 	TestAlarm()
 	{
-		alarm_ = std::make_unique<base::alarm>(9, 57, 0);
+		//>=c++14
+		//alarm_ = std::make_unique<base::alarm>(9, 57, 0);
+		alarm_ = std::unique_ptr<base::alarm>(new base::alarm(9, 57, 0));
 	}
 	void test()
 	{
