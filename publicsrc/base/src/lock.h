@@ -7,6 +7,13 @@
 #include <assert.h>
 #include "base.h"
 /*
+互斥锁：线程会从sleep（加锁）——>running（解锁），
+过程中有上下文的切换，cpu的抢占，信号的发送等开销。
+互斥锁用于临界区持锁时间比较长的操作，比如下面这些情况都可以考虑
+1 临界区有IO操作
+2 临界区代码复杂或者循环量大
+3 临界区竞争非常激烈
+4 单核处理器
  * critical_section: not a kernal object(so it is faster than mutex/rwlock), can not synchronize multiple processes
  * mutex/rwlock: kernal object, can synchronize multiple processes
  */

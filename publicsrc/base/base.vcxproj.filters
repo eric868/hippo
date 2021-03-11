@@ -72,6 +72,9 @@
     <ClCompile Include="src\zip.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\synclog.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\aes.h">
@@ -144,6 +147,15 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\struct_field.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\singleton.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\nocopyable.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\synclog.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

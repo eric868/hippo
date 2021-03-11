@@ -89,7 +89,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>ZLIB_WINAPI;COMMON_EXPORT;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ZLIB_WINAPI;COMMON_EXPORT;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)3rd\openssl-1.0.1\include;$(SolutionDir)3rd\libevent-2.1.11-stable\include;$(SolutionDir)3rd</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -170,6 +170,7 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClCompile Include="src\pugixml.cpp" />
     <ClCompile Include="src\reference_base.cpp" />
     <ClCompile Include="src\rsa.cpp" />
+    <ClCompile Include="src\synclog.cpp" />
     <ClCompile Include="src\thread.cpp" />
     <ClCompile Include="src\timer.cpp" />
     <ClCompile Include="src\trace.cpp" />
@@ -189,12 +190,15 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClInclude Include="src\lock.h" />
     <ClInclude Include="src\md5.h" />
     <ClInclude Include="src\mqueue.h" />
+    <ClInclude Include="src\nocopyable.h" />
     <ClInclude Include="src\pugiconfig.h" />
     <ClInclude Include="src\pugixml.hpp" />
     <ClInclude Include="src\reference_base.h" />
     <ClInclude Include="src\rsa.h" />
     <ClInclude Include="src\sigslot.h" />
+    <ClInclude Include="src\singleton.h" />
     <ClInclude Include="src\struct_field.h" />
+    <ClInclude Include="src\synclog.h" />
     <ClInclude Include="src\thread.h" />
     <ClInclude Include="src\timer.h" />
     <ClInclude Include="src\tqueue.h" />
