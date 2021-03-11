@@ -1,97 +1,60 @@
 #include <windows.h>
+#include <windowsx.h>
 #include <stdio.h>
 #include <locale.h>
+#include"resource.h"
 //#pragma comment(linker, "/subsystem:\"console\" /entry:\"WinMainCRTStartup\"")
 
 #define WM_AAA WM_USER + 1
 
 //typedef long LRESULT
-//çª—å£å¥æŸ„ æ¶ˆæ¯ID 
+//´°¿Ú¾ä±ú ÏûÏ¢ID 
 LRESULT CALLBACK wndproc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam);
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
-	char windowname[] = "çª—å£";
-	char title[] = "æµ‹è¯•çª—å£";
+	char windowname[] = "´°¿Ú";
+	char title[] = "²âÊÔ´°¿Ú";
 
 	WNDCLASS wndclass;
 	wndclass.style = CS_HREDRAW;
-	wndclass.lpfnWndProc = wndproc;//å®šä¹‰çª—å£å¤„ç†å‡½æ•°
-	wndclass.cbClsExtra = 0;//çª—å£ç±»æ— æ‰©å±•
-	wndclass.cbWndExtra = 0;//çª—å£å®åˆ—æ— æ‰©å±•
-	wndclass.hInstance = hInstance; //å½“å‰å®ä¾‹å¥æŸ„
-	wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);//çª—å£çš„æœ€å°åŒ–å›¾æ ‡ä¸ºç¼ºçœå›¾æ ‡
-	wndclass.hCursor = LoadCursor(NULL, IDC_ARROW);//çª—å£é‡‡ç”¨ç®­å¤´å…‰æ ‡
-	wndclass.hbrBackground = (HBRUSH)(GetStockObject(LTGRAY_BRUSH));//çª—å£èƒŒæ™¯ä¸ºç™½è‰²
-	wndclass.lpszMenuName = NULL;//çª—å£æ— èœå•
+	wndclass.lpfnWndProc = wndproc;//¶¨Òå´°¿Ú´¦Àíº¯Êı
+	wndclass.cbClsExtra = 0;//´°¿ÚÀàÎŞÀ©Õ¹
+	wndclass.cbWndExtra = 0;//´°¿ÚÊµÁĞÎŞÀ©Õ¹
+	wndclass.hInstance = hInstance; //µ±Ç°ÊµÀı¾ä±ú
+	wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);//´°¿ÚµÄ×îĞ¡»¯Í¼±êÎªÈ±Ê¡Í¼±ê
+	wndclass.hCursor = LoadCursor(NULL, IDC_ARROW);//´°¿Ú²ÉÓÃ¼ıÍ·¹â±ê
+	wndclass.hbrBackground = (HBRUSH)(GetStockObject(LTGRAY_BRUSH));//´°¿Ú±³¾°Îª»ÒÉ«
+	wndclass.lpszMenuName = NULL;//´°¿ÚÎŞ²Ëµ¥
 	wndclass.lpszClassName = windowname;
 
 	ATOM ret = RegisterClass(&wndclass);
-	if (ret == 0)//å¦‚æœæ³¨å†Œå¤±è´¥ å‘å‡ºè­¦å‘Š
-	{
-		return 0;
-	}
+	if (ret == 0) return ret; //Èç¹û×¢²áÊ§°Ü ·¢³ö¾¯¸æ
 
-	//è¿”å›å‰å‘é€WM_CREATE
-	HWND hwnd = CreateWindow(windowname,//çª—å£ç±»åï¼Œåˆ›å»ºçª—å£æ—¶ä¸€å®šè¦åŸºäºæˆ‘ä»¬å·²ç»æ³¨å†Œè¿‡çš„çª—å£ç±»åï¼Œå³"çª—å£"ã€‚
-		title,//çª—å£æ ‡é¢˜å
+	//·µ»ØÇ°·¢ËÍWM_CREATE
+	HWND hwnd = CreateWindow(windowname,//´°¿ÚÀàÃû£¬´´½¨´°¿ÚÊ±Ò»¶¨Òª»ùÓÚÎÒÃÇÒÑ¾­×¢²á¹ıµÄ´°¿ÚÀàÃû£¬¼´"´°¿Ú"¡£
+		title,//´°¿Ú±êÌâÃû
 		WS_OVERLAPPEDWINDOW,
-		100,//çª—å£å·¦ä¸Šè§’åæ ‡å€¼ä¸ºç¼ºçœå€¼ CW_  Create Wndow
+		100,//´°¿Ú×óÉÏ½Ç×ø±êÖµ
 		100,
-		300, //çª—å£çš„é«˜å’Œå®½ä¸ºç¼ºçœå€¼
+		300,//´°¿ÚµÄ¸ßºÍ¿í
 		300,
-		NULL,//æ­¤çª—å£æ— çˆ¶çª—å£
-		NULL,//æ­¤çª—å£æ— å­èœå•
-		hInstance,//åˆ›å»ºæ­¤çª—å£çš„åº”ç”¨ç¨‹åºçš„å½“å‰å¥æŸ„
+		NULL,//´Ë´°¿ÚÎŞ¸¸´°¿Ú
+		NULL,//´Ë´°¿ÚÎŞ×Ó²Ëµ¥
+		hInstance,//´´½¨´Ë´°¿ÚµÄÓ¦ÓÃ³ÌĞòµÄµ±Ç°¾ä±ú
 		NULL);
 
-	//æ˜¾ç¤ºçª—å£
-	ShowWindow(hwnd, nCmdShow);
+	//ÏÔÊ¾´°¿Ú
+	ShowWindow(hwnd, nShowCmd);
 
-	//ç»˜åˆ¶ç”¨æˆ·åŒº(å‘é€WM_PAINT)
+	//»æÖÆÓÃ»§Çø(·¢ËÍWM_PAINT)
 	UpdateWindow(hwnd);
 
-	HWND hwnd2 = CreateWindow(windowname,//çª—å£ç±»åï¼Œåˆ›å»ºçª—å£æ—¶ä¸€å®šè¦åŸºäºæˆ‘ä»¬å·²ç»æ³¨å†Œè¿‡çš„çª—å£ç±»åï¼Œå³"çª—å£"ã€‚
-		title,//çª—å£æ ‡é¢˜å
-		WS_OVERLAPPEDWINDOW,
-		100,//çª—å£å·¦ä¸Šè§’åæ ‡å€¼ä¸ºç¼ºçœå€¼ CW_  Create Wndow
-		500,
-		300, //çª—å£çš„é«˜å’Œå®½ä¸ºç¼ºçœå€¼
-		300,
-		NULL,//æ­¤çª—å£æ— çˆ¶çª—å£
-		NULL,//æ­¤çª—å£æ— å­èœå•
-		hInstance,//åˆ›å»ºæ­¤çª—å£çš„åº”ç”¨ç¨‹åºçš„å½“å‰å¥æŸ„
-		NULL);
-
-	//æ˜¾ç¤ºçª—å£
-	ShowWindow(hwnd2, nCmdShow);
-
-	//ç»˜åˆ¶ç”¨æˆ·åŒº(å‘é€WM_PAINT)
-	UpdateWindow(hwnd2);
-
 	MSG msg;
-	while (GetMessage(&msg, NULL, 0, 0))//GetMessage()å‡½æ•°æ˜¯ä»è°ƒç”¨çº¿ç¨‹çš„æ¶ˆæ¯é˜Ÿåˆ—ä¸­å–å‡ºä¸€æ¡æ¶ˆæ¯ï¼›å¯¹äºæ¯ä¸€ä¸ªåº”ç”¨ç¨‹åºçª—å£çº¿ç¨‹ï¼Œæ“ä½œç³»ç»Ÿéƒ½ä¼šä¸ºå…¶å»ºç«‹ä¸€ä¸ªæ¶ˆæ¯é˜Ÿåˆ—ï¼Œå½“æˆ‘ä»¬çš„çª—å£æœ‰æ¶ˆæ¯æ—¶ï¼ˆå³æ‰€æœ‰ä¸è¿™ä¸ªçª—å£çº¿ç¨‹ç›¸å…³çš„æ¶ˆæ¯ï¼‰ï¼Œæ“çºµç³»ç»Ÿä¼šæŠŠè¿™ä¸ªæ¶ˆæ¯æ”¾åˆ°è¯¥çº¿ç¨‹çš„æ¶ˆæ¯é˜Ÿåˆ—å½“ä¸­ï¼Œæˆ‘ä»¬çš„çª—å£ç¨‹åºå°±é€šè¿‡è¿™ä¸ªGetMessage()å‡½æ•°ä»è‡ªå·±çš„æ¶ˆæ¯é˜Ÿåˆ—ä¸­å–å‡ºä¸€æ¡ä¸€æ¡å…·ä½“çš„æ¶ˆæ¯å¹¶è¿›è¡Œå“åº”æ“ä½œã€‚
+	while (GetMessage(&msg, NULL, 0, 0))//GetMessage()º¯ÊıÊÇ´Óµ÷ÓÃÏß³ÌµÄÏûÏ¢¶ÓÁĞÖĞÈ¡³öÒ»ÌõÏûÏ¢£»¶ÔÓÚÃ¿Ò»¸öÓ¦ÓÃ³ÌĞò´°¿ÚÏß³Ì£¬²Ù×÷ÏµÍ³¶¼»áÎªÆä½¨Á¢Ò»¸öÏûÏ¢¶ÓÁĞ£¬µ±ÎÒÃÇµÄ´°¿ÚÓĞÏûÏ¢Ê±£¨¼´ËùÓĞÓëÕâ¸ö´°¿ÚÏß³ÌÏà¹ØµÄÏûÏ¢£©£¬²Ù×İÏµÍ³»á°ÑÕâ¸öÏûÏ¢·Åµ½¸ÃÏß³ÌµÄÏûÏ¢¶ÓÁĞµ±ÖĞ£¬ÎÒÃÇµÄ´°¿Ú³ÌĞò¾ÍÍ¨¹ıÕâ¸öGetMessage()º¯Êı´Ó×Ô¼ºµÄÏûÏ¢¶ÓÁĞÖĞÈ¡³öÒ»ÌõÒ»Ìõ¾ßÌåµÄÏûÏ¢²¢½øĞĞÏìÓ¦²Ù×÷¡£
 	{
-		if (msg.message == WM_LBUTTONDOWN)
-		{
-			//char str[64];
-			//sprintf(str, "çª—å£å¥æŸ„:%p", msg.hwnd);
-			//MessageBox(NULL, str, "æµ‹è¯•", MB_OK);
-			//SendMessageç›´æ¥å‘ç»™çª—å£è¿‡ç¨‹ï¼Œé˜»å¡ï¼Œå¤„ç†å®Œæˆè¿”å›
-			//SendMessage(hwnd, WM_AAA, 0, 0);
-			//PostMessageå‘é€åˆ°æ¶ˆæ¯é˜Ÿåˆ—ä¸­ï¼Œå¼‚æ­¥
-			//PostMessage(hwnd, WM_AAA, 0, 0);
-			PostThreadMessage(GetCurrentThreadId(), WM_QUIT, 0, 0); // ç­‰ä»·äºPostQuitMessage(0);
-			int a = 100;
-		}
-
-		if (msg.message == WM_AAA)
-		{
-			MessageBox(NULL, "æ¶ˆæ¯å¾ªç¯AAA", "æµ‹è¯•", MB_OK);
-		}
-
-		TranslateMessage(&msg);//å¯¹"æ¶ˆæ¯å¯¹"çš„è½¬åŒ–ï¼Œå¦‚å¯¹é”®ç›˜çš„WM_KEYDOWNå’ŒWM_KEYUPæ¶ˆæ¯å¯¹è½¬åŒ–ä¸ºWM_CHARæ¶ˆæ¯ï¼Œå¹¶ä¸”å°†è½¬æ¢åçš„æ–°æ¶ˆæ¯æŠ•é€’åˆ°æˆ‘ä»¬çš„æ¶ˆæ¯é˜Ÿåˆ—ä¸­å»ï¼Œè¿™ä¸ªè½¬åŒ–æ“ä½œä¸ä¼šå½±å“åŸæ¥çš„æ¶ˆæ¯ï¼Œåªä¼šäº§ç”Ÿä¸€ä¸ªæ–°çš„æ¶ˆæ¯ã€‚
-		DispatchMessage(&msg);//DispatchMessage()å‡½æ•°æ˜¯å°†æˆ‘ä»¬å–å‡ºçš„æ¶ˆæ¯ä¼ åˆ°çª—å£çš„å›è°ƒå‡½æ•°å»å¤„ç†ï¼›å¯ä»¥ç†è§£ä¸ºè¯¥å‡½æ•°å°†å–å‡ºçš„æ¶ˆæ¯è·¯ç”±ç»™æ“ä½œç³»ç»Ÿï¼Œç„¶åæ“ä½œç³»ç»Ÿå»è°ƒç”¨æˆ‘ä»¬çš„çª—å£å›è°ƒå‡½æ•°å¯¹è¿™ä¸ªæ¶ˆæ¯è¿›è¡Œå¤„ç†ã€‚
+		TranslateMessage(&msg);//¶Ô"ÏûÏ¢¶Ô"µÄ×ª»¯£¬Èç¶Ô¼üÅÌµÄWM_KEYDOWNºÍWM_KEYUPÏûÏ¢¶Ô×ª»¯ÎªWM_CHARÏûÏ¢£¬²¢ÇÒ½«×ª»»ºóµÄĞÂÏûÏ¢Í¶µİµ½ÎÒÃÇµÄÏûÏ¢¶ÓÁĞÖĞÈ¥£¬Õâ¸ö×ª»¯²Ù×÷²»»áÓ°ÏìÔ­À´µÄÏûÏ¢£¬Ö»»á²úÉúÒ»¸öĞÂµÄÏûÏ¢¡£
+		DispatchMessage(&msg);//DispatchMessage()º¯ÊıÊÇ½«ÎÒÃÇÈ¡³öµÄÏûÏ¢´«µ½´°¿ÚµÄ»Øµ÷º¯ÊıÈ¥´¦Àí£»¿ÉÒÔÀí½âÎª¸Ãº¯Êı½«È¡³öµÄÏûÏ¢Â·ÓÉ¸ø²Ù×÷ÏµÍ³£¬È»ºó²Ù×÷ÏµÍ³È¥µ÷ÓÃÎÒÃÇµÄ´°¿Ú»Øµ÷º¯Êı¶ÔÕâ¸öÏûÏ¢½øĞĞ´¦Àí¡£
 	}
 
 	return msg.wParam;
@@ -101,15 +64,35 @@ LRESULT CALLBACK wndproc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	switch (message)
 	{
-	case WM_AAA:
-		MessageBox(NULL, "çª—å£å¤„ç†ç¨‹åºAAA", "æµ‹è¯•", MB_OK);
+	case WM_NOTIFY:
+	{
+		
+	}
+	break;
+	case WM_COMMAND:
+	{
+		WORD id = LOWORD(wparam);
+		WORD code = HIWORD(wparam);
+		HWND hctrl = (HWND)lparam;
 
+
+	}
+	break;
 	case WM_CREATE:
-		//init the window
-		return 0;
+	{
+		LPCREATESTRUCT pcs = (LPCREATESTRUCT)lparam;
+
+	
+	}
+	break;
 	case WM_DESTROY:
+	{
+		//SendMessage(hwnd, WM_AAA, 0, 0); //Í¬²½·¢ËÍ£¬Ö±½Ó·¢ËÍ¸ø´°¿Ú´¦Àí·½·¨
+		//PostMessage(hwnd, WM_AAA, 0, 0); //Òì²½·¢ËÍ£¬·¢ËÍ¸ø´°¿ÚÏûÏ¢¶ÓÁĞ
+		//PostThreadMessage(GetCurrentThreadId(), WM_QUIT, 0, 0); //µÈÍ¬ÓÚPostQuitMessage(0);
 		PostQuitMessage(0);
-		return 0;
+	}
+	break;
 	default:
 		return DefWindowProc(hwnd, message, wparam, lparam);
 	}
