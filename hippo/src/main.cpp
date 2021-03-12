@@ -7,11 +7,17 @@
 #include "test_sigslot.h"
 #include "test_alarm.h"
 #include "test_thread.h"
+#include "test_singleton.h"
 
 using namespace std;
 
 int main()
 {
+	base::synclog::level_ = base::synclog::LOG_TRACE;
+	base::synclog::iscout_ = true;
+
+	TestSingleton::instance()->test();
+
 	TestThread test_thread;
 	test_thread.test();
 

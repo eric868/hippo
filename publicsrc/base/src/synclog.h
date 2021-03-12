@@ -5,13 +5,13 @@
 #include "singleton.h"
 #include "lock.h"
 
-#define APP_LOG(LEVEL) base::synclog_finisher() = base::synclog_input(LEVEL, __FILE__, __LINE__)
+#define SYNC_LOG(LEVEL) base::synclog_finisher() = base::synclog_input(LEVEL, __FILE__, __LINE__)
 
 namespace base
 {
 	class synclog 
 	{
-        SINGLETON_UNINIT(synclog)
+		SINGLETON_UNINIT(synclog)
 	public:
 		enum level
 		{
@@ -24,14 +24,16 @@ namespace base
 		};
 
 		static void set_level(unsigned int level);
-		std::string localdatetimestr();
-		std::string localdatestr();
-		void mkdir(const std::string& dir);
+		static std::string localdatetimestr();
+		static std::string localdatestr();
+		//只能创建一级目录，即path倒数第二级必须是已经存在，否则创建不成功。
+		static void mkdir(const std::string& dir);
 		void log(level elevel, const std::string& fileline, const std::string& msg);
 	
-	private:
 		static bool iscout_;
 		static int level_;
+	
+	private:
 		static mutex mutex_;
 	};
     SINGLETON_GET(synclog)

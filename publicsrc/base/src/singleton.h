@@ -1,5 +1,6 @@
 #pragma once
 #include <mutex>
+#include <memory>
 #include "nocopyable.h"
 #include "lock.h"
 

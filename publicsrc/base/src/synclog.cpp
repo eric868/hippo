@@ -19,12 +19,12 @@ namespace base
 {
 	static const char* LOG_LEVEL_STR[] = {
 		"NULL",
-		"(TRACE)",
-		"(DEBUG)",
-		"(INFO)",
-		"(WARNING)",
-		"(ERROR)",
-		"(CRITICAL)"
+		"[TRACE]",
+		"[DEBUG]",
+		"[INFO]",
+		"[WARNING]",
+		"[ERROR]",
+		"[CRITICAL]"
 	};
 
 	bool synclog::iscout_ = true;
@@ -45,15 +45,14 @@ namespace base
 			sys.wYear, sys.wMonth, sys.wDay,
 			sys.wHour, sys.wMinute, sys.wSecond, sys.wMilliseconds);
 #else
-		struct timeval t_time;
-		gettimeofday(&t_time, NULL);
-		time_t t_date;
-		time(&t_date);
-		tm* local_t = localtime(&t_date);
+		struct timeval t;
+		gettimeofday(&t, NULL);
+		struct tm ti = {0};
+		localtime_r(&t.tv_sec, &ti);
 		sprintf(buf, "%4d-%02d-%02d %02d:%02d:%02d.%03ld",
-			local_t->tm_year + 1900, local_t->tm_mon + 1, local_t->tm_mday,
-			local_t->tm_hour, local_t->tm_min, local_t->tm_sec,
-			t_time.tv_usec / 1000);
+			ti.tm_year + 1900, ti.tm_mon + 1, ti.tm_mday,
+			ti.tm_hour, ti.tm_min, ti.tm_sec,
+			t.tv_usec / 1000);
 #endif
 		return buf;
 	}
@@ -68,8 +67,9 @@ namespace base
 #else
 		time_t t;
 		time(&t);
-		tm* local_t = localtime(&t);
-		sprintf(date_str, "%4d%02d%02d", local_t->tm_year + 1900, local_t->tm_mon + 1, local_t->tm_mday);
+		struct tm ti = { 0 };
+		localtime_r(&t, &ti);
+		sprintf(buf, "%4d%02d%02d", ti.tm_year + 1900, ti.tm_mon + 1, ti.tm_mday);
 #endif
 		return buf;
 	}
@@ -79,7 +79,7 @@ namespace base
 #ifdef _MSC_VER
 		_mkdir(dir.c_str());
 #else
-		mkdir(dir.c_str(), S_IRWXU | S_IRWXG | S_IROTH);
+		::mkdir(dir.c_str(), S_IRWXU | S_IRWXG | S_IROTH);
 #endif
 	}
 
@@ -92,18 +92,21 @@ namespace base
 			{
 				std::cout << msg << std::endl;
 			}
+			std::string datestr = localdatestr();
 			std::string filename("../log/");
 			mkdir(filename);
-			filename += localdatestr();
+			filename += datestr;
 			mkdir(filename);
-			filename += "/app.log";
+			filename += "/" + datestr +  ".log";
 			std::ofstream out(filename.c_str(), std::ios::app);
-			out << localdatetimestr() << "/";
+			out << "## ";
+			out << localdatetimestr();
+			out << " ";
 			out << LOG_LEVEL_STR[elevel];
-			out << ":	";
+			out << " ";
+			out << "[" << fileline << "]";
+			out << " ";
 			out << msg;
-			out << "	";
-			out << "(" << fileline << ")";
 			out << std::endl;
 			out.close();
 		}
