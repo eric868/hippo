@@ -171,7 +171,7 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClCompile Include="src\pugixml.cpp" />
     <ClCompile Include="src\reference_base.cpp" />
     <ClCompile Include="src\rsa.cpp" />
-    <ClCompile Include="src\semaphore.cpp" />
+    <ClCompile Include="src\tsemaphore.cpp" />
     <ClCompile Include="src\spinlock.cpp" />
     <ClCompile Include="src\ssemaphore.cpp" />
     <ClCompile Include="src\synclog.cpp" />
@@ -200,11 +200,12 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClInclude Include="src\pugixml.hpp" />
     <ClInclude Include="src\reference_base.h" />
     <ClInclude Include="src\rsa.h" />
-    <ClInclude Include="src\semaphore.h" />
+    <ClInclude Include="src\tsemaphore.h" />
     <ClInclude Include="src\sigslot.h" />
     <ClInclude Include="src\singleton.h" />
     <ClInclude Include="src\spinlock.h" />
     <ClInclude Include="src\ssemaphore.h" />
+    <ClInclude Include="src\state.h" />
     <ClInclude Include="src\struct_field.h" />
     <ClInclude Include="src\synclog.h" />
     <ClInclude Include="src\thread.h" />

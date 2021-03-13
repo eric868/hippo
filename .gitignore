@@ -7,6 +7,7 @@ hippo/debug/*
 hippo/bin/*
 publicsrc/base/bin/*
 win32/debug/*
+log/*
 
  # Compiled source # 
 ###################

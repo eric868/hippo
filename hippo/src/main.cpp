@@ -16,10 +16,10 @@ int main()
 	base::synclog::level_ = base::synclog::LOG_TRACE;
 	base::synclog::iscout_ = true;
 
-	TestSingleton::instance()->test();
-
 	TestThread test_thread;
 	test_thread.test();
+
+	TestSingleton::instance()->test();
 
 	TestDictionary test_dictionary;
 	test_dictionary.test();

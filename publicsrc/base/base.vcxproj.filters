@@ -78,13 +78,13 @@
     <ClCompile Include="src\condition.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\semaphore.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\ssemaphore.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\spinlock.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tsemaphore.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,13 +173,16 @@
     <ClInclude Include="src\condition.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\semaphore.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\ssemaphore.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\spinlock.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\state.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tsemaphore.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
