@@ -30,6 +30,11 @@ public:
 	void acquire();
 	int try_acquire();
 	void release();
+#ifdef _MSC_VER
+	CRITICAL_SECTION* get_mutex() { return &cs_; }
+#else
+	pthread_mutex_t* get_mutex() { return &cs_; }
+#endif
 
 protected:
 #if defined(_MSC_VER)
