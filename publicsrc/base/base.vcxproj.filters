@@ -87,6 +87,9 @@
     <ClCompile Include="src\tsemaphore.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\sharememory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\aes.h">
@@ -186,6 +189,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\shareptr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sharememory.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

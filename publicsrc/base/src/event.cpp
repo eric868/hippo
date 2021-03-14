@@ -46,7 +46,7 @@ event::event(LPSECURITY_ATTRIBUTES attributes, bool manual_reset, bool initial_s
     
 event::event(LPSECURITY_ATTRIBUTES attributes, bool manual_reset, bool initial_state, const std::string& name)
 {
-    handle_ = ::CreateEvent(attributes, manual_reset, initial_state, (LPCWSTR)(name.c_str()));
+    handle_ = ::CreateEvent(attributes, manual_reset, initial_state, name.c_str());
     if (handle_ == NULL) {
 		TRACE_ERROR("base", 0, "create event failed, errno:%d", ::GetLastError());
     }

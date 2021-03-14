@@ -52,7 +52,7 @@ int file::open(const char* file_path, int flags)
 	else {
 		attrs = CREATE_NEW;
 	}
-	file_ = ::CreateFile((LPCWSTR)file_path,
+	file_ = ::CreateFile(file_path,
 		access,
 		FILE_SHARE_READ,
 		NULL,
@@ -255,7 +255,7 @@ bool file::is_open() const
 bool file::is_file_exist(const char* file_path)
 {
 #if defined(_MSC_VER)
-	DWORD attr = GetFileAttributes((LPCWSTR)file_path);
+	DWORD attr = GetFileAttributes(file_path);
 	if (attr != INVALID_FILE_ATTRIBUTES &&
 		attr != FILE_ATTRIBUTE_DIRECTORY) {
 		return true;
@@ -273,7 +273,7 @@ bool file::is_file_exist(const char* file_path)
 bool file::is_directory_exist(const char* file_path)
 {
 #if defined(_MSC_VER)
-	DWORD attr = GetFileAttributes((LPCWSTR)file_path);
+	DWORD attr = GetFileAttributes(file_path);
 	if (attr != INVALID_FILE_ATTRIBUTES &&
 		attr == FILE_ATTRIBUTE_DIRECTORY) {
 		return true;

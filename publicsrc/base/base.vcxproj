@@ -29,7 +29,7 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -171,6 +171,7 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClCompile Include="src\pugixml.cpp" />
     <ClCompile Include="src\reference_base.cpp" />
     <ClCompile Include="src\rsa.cpp" />
+    <ClCompile Include="src\sharememory.cpp" />
     <ClCompile Include="src\tsemaphore.cpp" />
     <ClCompile Include="src\spinlock.cpp" />
     <ClCompile Include="src\ssemaphore.cpp" />
@@ -200,6 +201,7 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClInclude Include="src\pugixml.hpp" />
     <ClInclude Include="src\reference_base.h" />
     <ClInclude Include="src\rsa.h" />
+    <ClInclude Include="src\sharememory.h" />
     <ClInclude Include="src\shareptr.h" />
     <ClInclude Include="src\tsemaphore.h" />
     <ClInclude Include="src\sigslot.h" />
