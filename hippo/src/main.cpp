@@ -8,6 +8,7 @@
 #include "test_alarm.h"
 #include "test_thread.h"
 #include "test_singleton.h"
+#include "test_shareptr.h"
 
 using namespace std;
 
@@ -15,6 +16,9 @@ int main()
 {
 	base::synclog::level_ = base::synclog::LOG_TRACE;
 	base::synclog::iscout_ = true;
+
+	TestShareptr test_shareptr;
+	test_shareptr.test();
 
 	TestThread test_thread;
 	test_thread.test();

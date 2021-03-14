@@ -200,6 +200,7 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClInclude Include="src\pugixml.hpp" />
     <ClInclude Include="src\reference_base.h" />
     <ClInclude Include="src\rsa.h" />
+    <ClInclude Include="src\shareptr.h" />
     <ClInclude Include="src\tsemaphore.h" />
     <ClInclude Include="src\sigslot.h" />
     <ClInclude Include="src\singleton.h" />
