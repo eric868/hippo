@@ -33,7 +33,7 @@ namespace base
 		LPVOID address_;
 #else
 		int hmapping_;
-		char* address_;
+		void* address_;
 #endif
 	};
 }

@@ -24,6 +24,7 @@
   <ItemGroup>
     <ClInclude Include="src\test_alarm.h" />
     <ClInclude Include="src\test_dictionary.h" />
+    <ClInclude Include="src\test_sharememory.h" />
     <ClInclude Include="src\test_shareptr.h" />
     <ClInclude Include="src\test_sigslot.h" />
     <ClInclude Include="src\test_singleton.h" />

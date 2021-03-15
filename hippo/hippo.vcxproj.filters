@@ -44,6 +44,9 @@
     <ClInclude Include="src\test_shareptr.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\test_sharememory.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
