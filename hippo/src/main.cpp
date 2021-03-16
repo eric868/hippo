@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <memory>
+#include <algorithm>
 #include "test_dictionary.h"
 #include "test_struct_field.h"
 #include "test_sigslot.h"
@@ -10,6 +11,7 @@
 #include "test_singleton.h"
 #include "test_shareptr.h"
 #include "test_sharememory.h"
+#include "test_datetime.h"
 
 using namespace std;
 
@@ -17,6 +19,9 @@ int main()
 {
 	base::synclog::level_ = base::synclog::LOG_TRACE;
 	base::synclog::iscout_ = true;
+
+	TestDatetime test_datetime;
+	test_datetime.test();
 
 	TestSharememory test_sharememory;
 	test_sharememory.test();

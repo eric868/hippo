@@ -90,6 +90,9 @@
     <ClCompile Include="src\sharememory.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\datetime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\aes.h">
@@ -192,6 +195,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\sharememory.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\datetime.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

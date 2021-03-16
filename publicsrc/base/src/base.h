@@ -192,7 +192,7 @@ namespace base {
 	typedef int16_t int16;
 	typedef int32_t int32;
 	typedef long int64;
-	typedef long date;
+	//typedef long date;
 	typedef float float32;
 	typedef double float64;
 
@@ -221,7 +221,7 @@ namespace base {
 #else
 	typedef long long int64;
 #endif
-	typedef long date;
+	//typedef long date;
 	typedef float float32;
 	typedef double float64;
 
@@ -254,7 +254,7 @@ namespace base {
 	typedef __int16 int16;
 	typedef __int32 int32;
 	typedef __int64 int64;
-	typedef int64 date;
+	//typedef int64 date;
 	typedef float float32;
 	typedef double float64;
 

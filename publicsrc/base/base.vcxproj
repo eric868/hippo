@@ -161,6 +161,7 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClCompile Include="src\alarm.cpp" />
     <ClCompile Include="src\base64.cpp" />
     <ClCompile Include="src\condition.cpp" />
+    <ClCompile Include="src\datetime.cpp" />
     <ClCompile Include="src\dictionary.cpp" />
     <ClCompile Include="src\dispatch.cpp" />
     <ClCompile Include="src\dtrans.cpp" />
@@ -188,6 +189,7 @@ copy $(ProjectDir)src\*.h*  $(SolutionDir)public\$(TargetName)</Command>
     <ClInclude Include="src\base.h" />
     <ClInclude Include="src\base64.h" />
     <ClInclude Include="src\condition.h" />
+    <ClInclude Include="src\datetime.h" />
     <ClInclude Include="src\dictionary.h" />
     <ClInclude Include="src\dispatch.h" />
     <ClInclude Include="src\dtrans.h" />

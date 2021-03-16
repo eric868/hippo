@@ -19,7 +19,7 @@ public:
 
 	void printinfo()
 	{
-		std::cout << "name£º" << name_ << " age£º" << age_ << std::endl;
+		std::cout << "name: " << name_ << " age: " << age_ << std::endl;
 	}
 private:
 	std::string name_;
@@ -33,14 +33,14 @@ public:
 	{
 		base::shareptr<Person> pp(new Person("tom", 18));
 		pp->printinfo();
-		std::cout << "refcount£º" << pp.get_ref_count() << std::endl;
+		std::cout << "refcount: " << pp.get_ref_count() << std::endl;
 		{
 			base::shareptr<Person> pp2 = pp;
 			pp2->printinfo();
-			std::cout << "refcount£º" << pp.get_ref_count() << std::endl;
+			std::cout << "refcount: " << pp.get_ref_count() << std::endl;
 		}
 		pp->printinfo();
-		std::cout << "refcount£º" << pp.get_ref_count() << std::endl;
+		std::cout << "refcount: " << pp.get_ref_count() << std::endl;
 	}
 
 };
