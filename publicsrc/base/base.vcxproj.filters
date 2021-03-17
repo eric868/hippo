@@ -91,7 +91,7 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\datetime.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

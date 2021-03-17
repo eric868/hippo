@@ -15,6 +15,14 @@ public:
 
 		base::datetime datetime;
 		std::cout << datetime.now().str() << std::endl;
+		base::datetime datetime2 = datetime + 10;
+		std::cout << datetime2.str() << std::endl;
+		datetime2 += 30;
+		std::cout << datetime2.str() << std::endl;
+		std::cout << (datetime2 - 20).str() << std::endl;
+		datetime2 -= 30;
+		std::cout << datetime2.str() << std::endl;
+
 
 		base::datetime datetime1;
 		datetime1.m_date.setvalue("2021-03-17");

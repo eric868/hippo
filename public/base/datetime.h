@@ -136,6 +136,17 @@ struct datetime
 	datetime() {}
 	datetime(const date& d, const time& t) : m_date(d), m_time(t) {}
 	datetime(const datetime& other) : m_date(other.m_date), m_time(other.m_time) {}
+	datetime(const time_t& t)
+	{
+		struct tm p = { 0 };
+#ifdef _MSC_VER
+		localtime_s(&p, &t);
+#else
+		localtime_r(&t, &p);
+#endif
+		m_date = date(p.tm_year + 1900, p.tm_mon + 1, p.tm_mday);
+		m_time = time(p.tm_hour, p.tm_min, p.tm_sec);
+	}
 	datetime& operator=(const datetime& other)
 	{
 		if (this != &other)
@@ -201,6 +212,43 @@ struct datetime
 	{
 		time t3 = t1.m_time - t2;
 		return datetime(t1.m_date, t3);
+	}
+
+	time_t gettimestamp() const
+	{
+		tm p;
+		p.tm_year = m_date.year - 1900;
+		p.tm_mon = m_date.month - 1;
+		p.tm_mday = m_date.day;
+		p.tm_hour = m_time.hour;
+		p.tm_min = m_time.minute;
+		p.tm_sec = m_time.second;
+
+		return mktime(&p);
+	}
+
+	datetime operator+(int second) const
+	{
+		time_t t = gettimestamp() + (time_t)second;
+		return datetime(t);
+	}
+
+	datetime& operator+=(int second)
+	{
+		*this = *this + second;
+		return *this;
+	}
+
+	datetime operator-(int second) const
+	{
+		time_t t = gettimestamp() - (time_t)second;
+		return datetime(t);
+	}
+
+	datetime& operator-=(int second)
+	{
+		*this = *this - second;
+		return *this;
 	}
 
 	//format 0:YYYYMMDD hh:mm:ss 1:YYYY-MM-DD hh:mm:ss 2:YYYY/MM/DD hh:mm:ss 3:YYYY-MM-DD hh:mm:ss.ms
