@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+	<log_level>2</log_level>
+	<userinfo>
+		<item>
+			<fieldname>id</fieldname>
+			<fieldtype>int</fieldtype>
+		</item>
+		<item>
+			<fieldname>name</fieldname>
+			<fieldtype>string</fieldtype>
+		</item>
+		<item>
+			<fieldname>age</fieldname>
+			<fieldtype>int</fieldtype>
+		</item>
+		<item>
+			<fieldname>money</fieldname>
+			<fieldtype>double</fieldtype>
+		</item>
+	</userinfo>
+</root>
