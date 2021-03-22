@@ -6,6 +6,7 @@ debug/*
 hippo/debug/*
 hippo/bin/*
 publicsrc/base/bin/*
+analysis/bin/*
 win32/debug/*
 log/*
 

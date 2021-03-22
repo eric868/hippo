@@ -19,6 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\public\common\datatype_base.h" />
+    <ClInclude Include="..\public\common\datatype_base_ext.h" />
+    <ClInclude Include="..\public\common\datatype_basic.h" />
+    <ClInclude Include="..\public\common\datatype_core.h" />
+    <ClInclude Include="..\public\common\messagetype.h" />
     <ClInclude Include="src\data_user.h" />
     <ClInclude Include="src\errordefbase.h" />
     <ClInclude Include="src\errordefine.h" />

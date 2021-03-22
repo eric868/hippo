@@ -5,7 +5,8 @@
 #include "synclog.h"
 #include "errordefine.h"
 #include "publicdatacenter.h"
-
+#include "../common/datatype_core.h"
+#include "../common/messagetype.h"
 Server::Server()
 {
 }

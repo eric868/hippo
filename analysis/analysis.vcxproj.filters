@@ -19,6 +19,9 @@
     <Filter Include="config">
       <UniqueIdentifier>{1e8d502c-ef6b-4c06-96d5-750bac181410}</UniqueIdentifier>
     </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{7c9d83ae-d99e-471c-8002-76215c7e010f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\errordefbase.h">
@@ -44,6 +47,21 @@
     </ClInclude>
     <ClInclude Include="src\data_user.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\common\datatype_base.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\common\datatype_base_ext.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\common\datatype_basic.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\common\datatype_core.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\common\messagetype.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
